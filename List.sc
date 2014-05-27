@@ -30,6 +30,7 @@ object Lists {
  //0->1  1->2
  "ab".toList                                      //> res4: List[Char] = List(a, b)
  "babba".toList                                   //> res5: List[Char] = List(b, a, b, b, a)
+	//res5: List[Char] = List(b, a, b, b, a)
 	List(0,0,1,0,1,1)                         //> res6: List[Int] = List(0, 0, 1, 0, 1, 1)
 	'a' > 'b'                                 //> res7: Boolean(false) = false
 	//false
