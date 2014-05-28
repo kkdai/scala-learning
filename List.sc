@@ -34,4 +34,12 @@ object Lists {
 	List(0,0,1,0,1,1)                         //> res6: List[Int] = List(0, 0, 1, 0, 1, 1)
 	'a' > 'b'                                 //> res7: Boolean(false) = false
 	//false
+	//Empty handle in list about null,List()
+	(List(1):::List())                        //> res8: List[Int] = List(1)
+	//List(1)
+	List(null)                                //> res9: List[Null] = List(null)
+	//List(null)
+  //error on List(1):::null  //null don't have member for :::
+	List(1):::List(null)                      //> res10: List[Any] = List(1, null)
+	// List(1, null)
 }
