@@ -42,4 +42,23 @@ object Lists {
   //error on List(1):::null  //null don't have member for :::
 	List(1):::List(null)                      //> res10: List[Any] = List(1, null)
 	// List(1, null)
+	
+	
+	//sample from 5.1
+	//last
+	def last[T](listx: List[T]): T = listx match {
+		case List() 	=> throw new Error("Non last")
+		case List(x)	=> x
+		case x::xs		=> last(xs)
+	}                                         //> last: [T](listx: List[T])T
+	last(List(0,0,1,0,1,1) )                  //> res11: Int = 1
+	// Int=1
+	last("Welcome to the Scala worksheet".toList)
+                                                  //> res12: Char = t
+	// Char=t
+	last(List("Welcome to the Scala worksheet".toList))
+                                                  //> res13: List[Char] = List(W, e, l, c, o, m, e,  , t, o,  , t, h, e,  , S, c,
+                                                  //|  a, l, a,  , w, o, r, k, s, h, e, e, t)
+	// List('W', 'e',.....)
+	
 }
