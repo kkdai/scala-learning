@@ -44,7 +44,8 @@ object Lists {
 	// List(1, null)
 	
 	
-	//sample from 5.1
+	//http://aperiodic.net/phil/scala/s-99/
+	//1. also sample from 5.1
 	//last
 	def last[T](listx: List[T]): T = listx match {
 		case List() 	=> throw new Error("Non last")
@@ -61,4 +62,44 @@ object Lists {
                                                   //|  a, l, a,  , w, o, r, k, s, h, e, e, t)
 	// List('W', 'e',.....)
 	
+	//2.
+	//penultimate(List(1, 1, 2, 3, 5, 8)) => Int = 5
+	def penultimate[T](listx: List[T]): T = listx match {
+		case List()				=> throw new Error("Non penultimate")
+		case x1::x2::Nil	=> x1 //#2
+		case x::xs				=> penultimate(xs) //#3
+		//Note the pattern match ordering is important, if switch #2 and #3 this method will failed into non-stop recursive.
+	}                                         //> penultimate: [T](listx: List[T])T
+	penultimate(List(1, 1, 2, 3, 5, 8))       //> res14: Int = 5
+	
+	//3.
+	//nth(2, List(1, 1, 2, 3, 5, 8))
+	def nth[A](n: Int, listx: List[A]): A = listx match {
+		case  x::xs		=> if (n==0) x else nth(n-1, xs)
+		case List()		=> throw new Error("Non nth")
+	}                                         //> nth: [A](n: Int, listx: List[A])A
+	nth(2, List(1, 1, 2, 3, 5, 8))            //> res15: Int = 2
+	
+	//4.
+	//length(List(1, 1, 2, 3, 5, 8))
+	/*def length[T](listx: List[T]): Int = lengthACC(0, listx)
+
+	def lengthACC[T](total: Int, listx: List[T]): Int = listx match {
+		case List()	=> total
+		case x::xs	=> lengthACC(total+1, xs)
+	}
+	*/
+	def length[T](listx: List[T]): Int = listx match {
+		case List()	=> 0
+		case x::xs	=> 1+length(xs)
+	}                                         //> length: [T](listx: List[T])Int
+	length(List(1, 1, 2, 3, 5, 8))            //> res16: Int = 6
+
+	//5.
+	//reverse(List(1, 1, 2, 3, 5, 8))
+	def reverse[T](listx: List[T]): List[T] = listx match {
+		case List()	=> List()
+		case x::xs	=> reverse(xs):::List(x)
+	}                                         //> reverse: [T](listx: List[T])List[T]
+	reverse(List(1, 1, 2, 3, 5, 8))           //> res17: List[Int] = List(8, 5, 3, 2, 1, 1)
 }
