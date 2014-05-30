@@ -43,7 +43,19 @@ object Lists {
 	List(1):::List(null)                      //> res10: List[Any] = List(1, null)
 	// List(1, null)
 	
+	//5.1
+	//
+	def remoteAt[T](n: Int, xs: List[T]): List[T] =  xs match {
+			case List() 	=> throw new Error("Non remove")
+			case y::ys	  => if (n-1<=0) ys else List(y):::remoteAt(n-1,ys)
+	}                                         //> remoteAt: [T](n: Int, xs: List[T])List[T]
 	
+	var ret = remoteAt(1, List('A', 'B', 'C'))//> ret  : List[Char] = List(B, C)
+	def remoteAt2[T](n: Int, xs: List[T]): List[T] =  (xs take n) ::: (xs drop n+1)
+                                                  //> remoteAt2: [T](n: Int, xs: List[T])List[T]
+	var ret2 = remoteAt2(1, List('A', 'B', 'C'))
+                                                  //> ret2  : List[Char] = List(A, C)
+
 	//http://aperiodic.net/phil/scala/s-99/
 	//1. also sample from 5.1
 	//last
@@ -102,4 +114,15 @@ object Lists {
 		case x::xs	=> reverse(xs):::List(x)
 	}                                         //> reverse: [T](listx: List[T])List[T]
 	reverse(List(1, 1, 2, 3, 5, 8))           //> res17: List[Int] = List(8, 5, 3, 2, 1, 1)
+	//6.
+	//isPalindrome(List(1, 2, 3, 2, 1))
+	def isPalindrome[T](listx: List[T]): Boolean =  listx==reverse(listx)
+                                                  //> isPalindrome: [T](listx: List[T])Boolean
+	isPalindrome(List(1, 2, 3, 2, 1))         //> res18: Boolean = true
+	
+	//7.
+	//flatten(List(List(1, 1), 2, List(3, List(5, 8))))
+
+	//8.
+	//compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
 }
