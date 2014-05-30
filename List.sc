@@ -122,7 +122,14 @@ object Lists {
 	
 	//7.
 	//flatten(List(List(1, 1), 2, List(3, List(5, 8))))
-
+	//(a) Must use with [Any] with Any class
+	def flatten(ls: List[Any]): List[Any] = ls flatMap {
+		case ms: List[xs]  => flatten(ms)
+		case e						 => List(e)
+	}                                         //> flatten: (ls: List[Any])List[Any]
+	flatten(List(List(1, 1), 2, List(3, List(5, 8))))
+                                                  //> res19: List[Any] = List(1, 1, 2, 3, 5, 8)
+	
 	//8.
 	//compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
 }
