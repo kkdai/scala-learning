@@ -22,10 +22,12 @@ object HighOrderList {
 		case y::ys	=> List(List(y)::: ys takeWhile(x => x==y)) ::: pack(ys dropWhile(x => x==y))
 	}                                         //> pack: [T](xs: List[T])List[List[T]]
 	pack(str)                                 //> res7: List[List[Char]] = List(List(a, a), List(b, b, b), List(c, c))
-
-  
+	pack("RoberteeRRoo".toList)               //> res8: List[List[Char]] = List(List(R), List(o), List(b), List(e), List(r), L
+                                                  //| ist(t), List(e, e), List(R, R), List(o, o))
+  var str2:String = "Robert is great"             //> str2  : String = Robert is great
+  str2.toList                                     //> res9: List[Char] = List(R, o, b, e, r, t,  , i, s,  , g, r, e, a, t)
   def encode[T](xs: List[T]): List[(T, Int)] = pack(xs) map (x => (x.head, x.length) )
                                                   //> encode: [T](xs: List[T])List[(T, Int)]
-	encode(str)                               //> res8: List[(Char, Int)] = List((a,2), (b,3), (c,2))
+	encode(str)                               //> res10: List[(Char, Int)] = List((a,2), (b,3), (c,2))
 	//List[(Char, Int)] = List((a,2), (b,3), (c,2))
 }
