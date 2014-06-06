@@ -76,7 +76,5 @@ object week66_Maps {
 	O1 - O2                                   //> res11: greeter.week66_Maps.Occu = a->1 , b->3 , c->0
 	(new Occu(pair_list.toMap) - new Occu(pair_list2.toMap)).toList
                                                   //> res12: List[(Char, Int)] = List((c,1), (a,5), (b,1), (d,2))
-   val lard: List[(Char, Int)] = List(('a', 1), ('d', 1), ('l', 1), ('r', 1))
-                                                  //> lard  : List[(Char, Int)] = List((a,1), (d,1), (l,1), (r,1))
-   val r: List[(Char, Int)] = List(('r', 1))      //> r  : List[(Char, Int)] = List((r,1))
+	
 }
