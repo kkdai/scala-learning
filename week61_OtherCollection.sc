@@ -1,6 +1,6 @@
 package greeter
 
-object otherCollection {
+object week61_OtherCollection {
   println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
   
   type Word = String
@@ -10,7 +10,7 @@ object otherCollection {
   xs map (x => x * 2)                             //> res0: Array[Int] = Array(2, 4, 6, 8)
   //Array(2, 4, 6, 8)
   
-  val s:Word = "I am the lengend"                 //> s  : greeter.otherCollection.Word = I am the lengend
+  val s:Word = "I am the lengend"                 //> s  : greeter.week61_OtherCollection.Word = I am the lengend
   s filter (x => x.isUpper)                       //> res1: String = I
   //String = I
   s exists (x => x.isLower)                       //> res2: Boolean = true
