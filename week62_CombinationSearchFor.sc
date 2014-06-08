@@ -47,21 +47,26 @@ object week62_CombinationSearchFor {
                                                   //| 9))
 	List(1,2,3,4) zip List(1,2,3,4)           //> res5: List[(Int, Int)] = List((1,1), (2,2), (3,3), (4,4))
 	
+	
 	for {
-		i <- List(null, 1,2,3)
+		i <- List(1,2,3)
 		j <- List(1,2,3)
 		if (i != j)
-	} yield (i, j)                            //> res6: List[(Any, Int)] = List((null,1), (null,2), (null,3), (1,2), (1,3), (2
-                                                  //| ,1), (2,3), (3,1), (3,2))
+	} yield (i, j)                            //> res6: List[(Int, Int)] = List((1,2), (1,3), (2,1), (2,3), (3,1), (3,2))
  for (i <- List(1,2,3) ) yield i                  //> res7: List[Int] = List(1, 2, 3)
- Set(1,2,3).subsets foreach println               //> Set()
-                                                  //| Set(1)
-                                                  //| Set(2)
-                                                  //| Set(3)
-                                                  //| Set(1, 2)
-                                                  //| Set(1, 3)
-                                                  //| Set(2, 3)
-                                                  //| Set(1, 2, 3)
+ val q_list = List(0, 1,2,3,4,5)                  //> q_list  : List[Int] = List(0, 1, 2, 3, 4, 5)
+ for {
+ 	i <- q_list:::Nil
+ 	j <- q_list:::Nil
+ 	k <- q_list:::Nil
+ 	if (i+j+k==6) && i!=j && j!=k && i!=k
+ } yield (i,j,k)                                  //> res8: List[(Int, Int, Int)] = List((0,1,5), (0,2,4), (0,4,2), (0,5,1), (1,0
+                                                  //| ,5), (1,2,3), (1,3,2), (1,5,0), (2,0,4), (2,1,3), (2,3,1), (2,4,0), (3,1,2)
+                                                  //| , (3,2,1), (4,0,2), (4,2,0), (5,0,1), (5,1,0))
+ 
+ 
+ 
+ //Set(1,2,3).subsets foreach println
 
 	def combine(in: List[Char]): Seq[String] =
     for {
