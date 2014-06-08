@@ -28,7 +28,14 @@ object week66_Maps {
 	//Some(3)
 	pair_list.toMap apply('c')                //> res7: Int = 3
 	//Int: 3
+	pair_list.toMap get('g')                  //> res8: Option[Int] = None
+	// Can get None byt using apply will error.
 	
+	// get can be using match
+	pair_list.toMap get('g')  match {
+		case Some(x)	=> x 		//is get x = apply
+		case None			=> Nil	//return Nil if None == List()
+	}                                         //> res9: Any = List()
 	
 	class Poly(terms0: Map[Int, Double]) {
 		val terms = terms0 withDefaultValue 0.0
@@ -52,9 +59,9 @@ object week66_Maps {
 	val P1 = new Poly( 1 -> 2.0, 2->3.2, 3->1.1 )
                                                   //> P1  : greeter.week66_Maps.Poly = 1->2.0 , 2->3.2 , 3->1.1
 	val P2 = new Poly( 1 -> 1.0, 3->0.2  )    //> P2  : greeter.week66_Maps.Poly = 1->1.0 , 3->0.2
-	P1 + P2                                   //> res8: greeter.week66_Maps.Poly = 1->3.0 , 2->3.2 , 3->1.3
-	P1 - P2                                   //> res9: greeter.week66_Maps.Poly = 1->1.0 , 2->3.2 , 3->0.9000000000000001
-	P1.terms apply 5                          //> res10: Double = 0.0
+	P1 + P2                                   //> res10: greeter.week66_Maps.Poly = 1->3.0 , 2->3.2 , 3->1.3
+	P1 - P2                                   //> res11: greeter.week66_Maps.Poly = 1->1.0 , 2->3.2 , 3->0.9000000000000001
+	P1.terms apply 5                          //> res12: Double = 0.0
 
 	class Occu(terms0: Map[Char, Int]) {
 		val terms = terms0 withDefaultValue 0
@@ -73,8 +80,9 @@ object week66_Maps {
 	val O1 = new Occu( 'a' -> 2, 'b'->3, 'c'->1 )
                                                   //> O1  : greeter.week66_Maps.Occu = a->2 , b->3 , c->1
 	val O2 = new Occu( 'a' -> 1, 'c'->1  )    //> O2  : greeter.week66_Maps.Occu = a->1 , c->1
-	O1 - O2                                   //> res11: greeter.week66_Maps.Occu = a->1 , b->3 , c->0
+	O1 - O2                                   //> res13: greeter.week66_Maps.Occu = a->1 , b->3 , c->0
 	(new Occu(pair_list.toMap) - new Occu(pair_list2.toMap)).toList
-                                                  //> res12: List[(Char, Int)] = List((c,1), (a,5), (b,1), (d,2))
+                                                  //> res14: List[(Char, Int)] = List((c,1), (a,5), (b,1), (d,2))
 	
+
 }

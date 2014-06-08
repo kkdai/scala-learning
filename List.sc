@@ -133,5 +133,6 @@ object Lists {
 	//8.
 	//compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
 	
-	
+	List(Nil)                                 //> res20: List[scala.collection.immutable.Nil.type] = List(List())
+	//List( List() )
 }
