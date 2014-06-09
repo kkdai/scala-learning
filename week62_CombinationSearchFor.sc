@@ -54,15 +54,39 @@ object week62_CombinationSearchFor {
 		if (i != j)
 	} yield (i, j)                            //> res6: List[(Int, Int)] = List((1,2), (1,3), (2,1), (2,3), (3,1), (3,2))
  for (i <- List(1,2,3) ) yield i                  //> res7: List[Int] = List(1, 2, 3)
- val q_list = List(0, 1,2,3,4,5)                  //> q_list  : List[Int] = List(0, 1, 2, 3, 4, 5)
+ 
+ 
+ val q_list2 = List(0,1,2,3,4,5)                  //> q_list2  : List[Int] = List(0, 1, 2, 3, 4, 5)
  for {
- 	i <- q_list:::Nil
- 	j <- q_list:::Nil
- 	k <- q_list:::Nil
+ 	i <- q_list2
+ 	j <- q_list2
+ 	k <- q_list2
  	if (i+j+k==6) && i!=j && j!=k && i!=k
  } yield (i,j,k)                                  //> res8: List[(Int, Int, Int)] = List((0,1,5), (0,2,4), (0,4,2), (0,5,1), (1,0
                                                   //| ,5), (1,2,3), (1,3,2), (1,5,0), (2,0,4), (2,1,3), (2,3,1), (2,4,0), (3,1,2)
                                                   //| , (3,2,1), (4,0,2), (4,2,0), (5,0,1), (5,1,0))
+ 
+ val q_list = List(1,2,3,4,5)                     //> q_list  : List[Int] = List(1, 2, 3, 4, 5)
+ for {
+ 	i <- (q_list:::Nil)
+ 	j <- (q_list:::Nil)
+ 	k <- (q_list:::Nil)
+ 	if (i+j+k==6) && i!=j && j!=k && i!=k
+ } yield (i,j,k)                                  //> res9: List[(Int, Int, Int)] = List((1,2,3), (1,3,2), (2,1,3), (2,3,1), (3,1
+                                                  //| ,2), (3,2,1))
+ val s_list = List("a","bb","ccc","dddd","eeeee","fffff")
+                                                  //> s_list  : List[String] = List(a, bb, ccc, dddd, eeeee, fffff)
+ for {
+ 	i <- (s_list:::List(""))
+ 	j <- (s_list:::List(""))
+ 	k <- (s_list:::List(""))
+ 	if (i.length + j.length + k.length == 6 ) && i!=j && j!=k && i!=k
+ } yield (i,j,k)                                  //> res10: List[(String, String, String)] = List((a,bb,ccc), (a,ccc,bb), (a,eee
+                                                  //| ee,""), (a,fffff,""), (a,"",eeeee), (a,"",fffff), (bb,a,ccc), (bb,ccc,a), (
+                                                  //| bb,dddd,""), (bb,"",dddd), (ccc,a,bb), (ccc,bb,a), (dddd,bb,""), (dddd,"",b
+                                                  //| b), (eeeee,a,""), (eeeee,"",a), (fffff,a,""), (fffff,"",a), ("",a,eeeee), (
+                                                  //| "",a,fffff), ("",bb,dddd), ("",dddd,bb), ("",eeeee,a), ("",fffff,a))
+
  
  
  
