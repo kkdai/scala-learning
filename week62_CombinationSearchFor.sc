@@ -87,9 +87,6 @@ object week62_CombinationSearchFor {
                                                   //| b), (eeeee,a,""), (eeeee,"",a), (fffff,a,""), (fffff,"",a), ("",a,eeeee), (
                                                   //| "",a,fffff), ("",bb,dddd), ("",dddd,bb), ("",eeeee,a), ("",fffff,a))
 
- 
- 
- 
  //Set(1,2,3).subsets foreach println
 
 	def combine(in: List[Char]): Seq[String] =
