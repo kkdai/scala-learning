@@ -12,4 +12,5 @@ object folderLeftRight {
 	list.foldLeft(2)((b,a) => b*a)            //> res5: Int = 128
 	list.foldLeft(1)((b,a) => b/a)            //> res6: Int = 0
 
+	(list foldRight (2)) ((b,a) => b+a)       //> res7: Int = 16
 }
