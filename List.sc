@@ -135,4 +135,6 @@ object Lists {
 	
 	List(Nil)                                 //> res20: List[scala.collection.immutable.Nil.type] = List(List())
 	//List( List() )
+	print("ss")                               //> ss
+ print("wqetdsfdsvtrhrtht".toList foreach (+(_)) )
 }
